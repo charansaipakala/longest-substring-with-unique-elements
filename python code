@@ -1,0 +1,28 @@
+def unique(x):
+    d=""
+    for i in range(0,len(x)):
+        if x[i] in d:
+            d=d+""
+        else:
+            d=d+x[i]
+    if d==x:
+        a=d
+        return len(x)
+    else:
+        return 0
+s=input("enter the string =")
+q=[]
+b=""
+maxs=0
+for i in range(0,len(s)):
+    for j in range(i,len(s)):
+        for k in range(i,j+1):
+            b=b+s[k]
+        q.append(b)
+        b=""
+for x in q:
+    c=unique(x)
+    if c>maxs:
+        c,maxs=maxs,c
+print(q)
+print(maxs)
